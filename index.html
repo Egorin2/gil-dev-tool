@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<!-- saved from url=(0071)file:///C:/Users/GRIGOR~1/AppData/Local/Temp/Nicepage/chrome/index.html -->
+<html style="font-size: 16px;" lang="ru" class="u-responsive-xl">
+	<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">    
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <title>Главная</title>
+    <link rel="stylesheet" href="./files/nicepage.css">
+	<link rel="stylesheet" href="./files/Главная.css">
+    <script class="u-script" type="text/javascript" src="./files/jquery.js" defer=""></script>
+    <script class="u-script" type="text/javascript" src="./files/nicepage.js" defer=""></script>
+    <meta name="generator" content="Nicepage 6.7.6, nicepage.com">
+    <link id="u-theme-google-font" rel="stylesheet" href="./files/css.css">
+	<script src="script/pmtiles.js"></script>
+	<link rel="stylesheet" src="script/maplibre-gl.css"></link>
+	<script src="script/maplibre-gl.js"></script>
+    <meta name="theme-color" content="#478ac9">
+    <meta property="og:title" content="Главная">
+    <meta property="og:type" content="website">
+	<style>
+      #map {
+        width: 30vw;
+        height: 50vh;
+      }	  
+    </style>
+  <meta data-intl-tel-input-cdn-path="intlTelInput/"></head>
+  <body data-home-page="Главная.html" data-home-page-title="Главная" data-path-to-root="./" data-include-products="true" class="u-body u-xl-mode" data-lang="ru">
+    <section class="u-clearfix u-section-1" id="sec-fbbf">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <div class="data-layout-selected u-clearfix u-expanded-width u-gutter-0 u-layout-wrap u-layout-wrap-1">
+          <div class="u-layout" style="">
+            <div class="u-layout-col" style="">
+              <div class="u-size-30" style="">
+                <div class="u-layout-row" style="">
+                  <div class="u-container-style u-layout-cell u-size-30 u-layout-cell-1">
+                    <div class="u-container-layout u-container-layout-1">
+                      <p class="u-text u-text-default u-text-1" id="cord-text">Координаты</p>
+                    </div>
+                  </div>
+                  <div class="u-container-style u-layout-cell u-size-30 u-layout-cell-2">
+                    <div class="u-container-layout u-container-layout-2">
+                      <div id="object-text"></div>
+                      <p class="u-text u-text-default u-text-2" >Выбранный объект</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="u-size-30">
+                <div class="u-layout-row">
+                  <div class="u-container-style u-layout-cell u-size-15 u-layout-cell-3">
+                    <div class="u-container-layout u-valign-middle u-container-layout-3">
+                      <a onclick="removeFid()" class="u-btn u-button-style u-btn-1">Удалить</a>
+                    </div>
+                  </div>
+                  <div class="u-container-style u-layout-cell u-size-15 u-layout-cell-4">
+                    <div class="u-container-layout u-valign-middle u-container-layout-4">
+                      <a class="u-btn u-button-style u-btn-2">Отменить</a>
+                    </div>
+                  </div>
+                  <div class="u-container-style u-layout-cell u-size-15 u-layout-cell-5">
+                    <div class="u-container-layout u-valign-middle u-container-layout-5">
+                      <a class="u-btn u-button-style u-btn-3">Отменить</a>
+                    </div>
+                  </div>
+                  <div class="u-container-style u-layout-cell u-size-15 u-layout-cell-6">
+                    <div class="u-container-layout u-container-layout-6">
+                      <a onclick="response_sql()" class="u-btn u-button-style u-btn-4" id="button-res-sql">Отправить</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="custom-expanded data-layout-selected u-clearfix u-layout-wrap u-layout-wrap-2">
+          <div class="u-layout">
+            <div class="u-layout-row">
+              <div class="u-container-style u-layout-cell u-size-30 u-layout-cell-7">
+              <div>
+                <div id="map">
+                  <!--  class="u-container-layout u-container-layout-7" 
+				  <div class="u-absolute-hcenter u-expanded u-grey-light-2 u-map">
+                    <div class="embed-responsive">
+                    </div>
+                  </div>-->
+                </div>
+                <div style="margin: 50px;" id="layers-map-but"></div>
+              </div>
+              </div>
+              
+              <div class="u-container-style u-layout-cell u-size-30 u-layout-cell-8">
+                <div class="u-container-layout u-container-layout-8">
+                  <ul class="u-text u-text-default u-text-3 list-sql">
+                  </ul>
+                </div>
+              </div>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    
+    
+    <footer class="u-align-center u-clearfix u-footer u-grey-80 u-footer" id="sec-5936"><div class="u-clearfix u-sheet u-sheet-1">
+        <p class="u-small-text u-text u-text-variant u-text-1">Пример текста. Кликните, чтобы выбрать элемент "Текст".</p>
+      </div></footer>
+    <section class="u-backlink u-clearfix u-grey-80">
+      <a class="u-link" target="_blank">
+        <span>Website Templates</span>
+      </a>
+      <p class="u-text">
+        <span>created with</span>
+      </p>
+      <a class="u-link" target="_blank">
+        <span>Website Builder Software</span>
+      </a>. 
+    </section>
+  
+<style>.u-disable-duration * {transition-duration: 0s !important;}</style>
+<script src="script/main.js"></script>
+<script>
+  let peObj = {
+    open: false
+  };
+  function removeFid(){
+    if (perpl.open){
+      let data = {};
+      data.fid = perpl.body.property.fid;
+      let str = JSON.stringify(data);
+      fetch("delete", {
+        method: 'POST',
+        // Заголовок запроса
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        // Данные
+        body: str
+      }).then(() => {
+        removeElem(perpl.body.property.fid);
+        //document.getElementById(peObj.body.id).remove();
+        perpl.popup.remove();
+        //peObj = { open: false };
+        console.log(str);
+      });
+    }
+  }
+  function response_sql(){
+    let data = {};
+    if (perpl.open && peObj.open){
+      data.coords = perpl.body.coords;
+      data.fid = perpl.body.property.fid;
+      data.id = peObj.body.id;   
+    
+      let str = JSON.stringify(data);
+      fetch("update", {
+        method: 'POST',
+        // Заголовок запроса
+        headers: {
+          'Content-Type': 'application/json'
+        },
+      // Данные
+        body: str    
+      }).then(() =>{
+        removeElem(perpl.body.property.fid);
+        document.getElementById('inp'+peObj.body.id).remove();
+        map.addLayer({
+          'id': 'poi-'+ perpl.body.property.fid+'rest',
+          'type': objType(perpl.body.type),
+          'source': 'moscow',
+          'paint': paintType2(perpl.body.type),
+          'filter': ['==', 'fid', perpl.body.property.fid]//,
+          //'filter': ['all', ['==', '$type', element.geometry.type], ['==', 'fid', element.properties.fid]]//,
+          //'layout':{    'visibility':"none"   }               
+        });
+        perpl.popup.remove();
+        peObj = {open: false};
+        console.log(str);});
+  } else {
+    console.log('Объекты не выбраны')
+  }
+  }
+	function print_pep(){
+		if (perpl.open){			
+			console.log("Печать");
+			console.log(perpl.body);
+			
+			//let datas_red = datas;
+			//console.log(datas_red.features);
+			//datas.features = datas_red.features.filter((elem) => elem.properties.fid != perpl.body.property.fid);
+			/*perpl.popup.remove();
+			let orderedLayerIds = map.getLayersOrder();
+			orderedLayerIds = orderedLayerIds.filter((elem) => elem.indexOf('poi-')!=-1)
+			orderedLayerIds.forEach((elem) =>map.removeLayer(elem));
+			map.removeSource('moscow');
+			setMap(datas);*/
+		} else {
+			/*console.log("Объект не выбран");
+			map.removeSource('moscow');
+			map.addSource('moscow', {
+				'type': 'geojson',
+				'data': datas
+			});*/
+		}
+		
+	}  
+	fetch(`select`)
+    .then((response) => response.json())
+	.then((json) => {
+		const list = document.getElementsByClassName("list-sql")[0];
+		json.forEach(element => {
+			
+			let lis = document.createElement("li");
+			const input = document.createElement('input');
+                input.type = 'checkbox';
+                lis.id = 'inp' + element.id;
+                input.checked = false;
+                lis.appendChild(input);
+                input.addEventListener('change', (e) => {
+                  if(e.target.checked){
+                  if (peObj.open){
+                    peObj = {};
+                  }
+                  peObj = {
+                    open: true,
+                    body: {
+                      id: element.id
+                    }
+                  };
+                  let obj = document.getElementById("object-text");
+                  obj.innerHTML = '';
+                  let text = document.createElement("p");
+                  text.innerText = "Объект: " + element.object_name;
+                  obj.appendChild(text);
+                  document.querySelector("#object-text").scrollIntoView();
+
+    }else{
+      peObj = {};
+      let obj = document.getElementById("object-text");
+                    obj.innerHTML = '';
+                      let text = document.createElement("p");
+                    text.innerText = "Объект не выбран";
+                    obj.appendChild(text);
+    }})
+			let label = document.createElement('label');
+                label.setAttribute('for', element.id);
+            label.textContent = element.object_name;
+            lis.appendChild(label);
+			//console.log(lis);
+			//console.log(list);
+			list.appendChild(lis);
+		});		
+		});
+</script>
+</body></html>

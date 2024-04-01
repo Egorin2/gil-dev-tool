@@ -1,0 +1,63 @@
+const express = require('express')
+const path = require('path');
+const app = express()
+
+const sqlite3 = require('sqlite3').verbose();
+//const db = new sqlite3.Database(path.join(__dirname, '/Objects.db'));
+
+/*db.serialize(() => {
+    //db.run("CREATE TABLE lorem (info TEXT)");
+
+    
+
+    db.each("SELECT id, object_name FROM Object", (err, row) => {
+        //console.log(row.id + ": " + row.object_name);
+		//console.log(row);
+    });
+});*/
+
+
+
+app.get('/', function (req, res) {
+  res.sendFile(path.join(__dirname, '/index.html'));
+})
+app.route('/script/maplibre-gl.js')
+  .get((req, res) => {
+    res.sendFile(path.join(__dirname, '/script/maplibre-gl.js'));
+  })
+app.route('/script/maplibre-gl.css')
+  .get((req, res) => {
+    res.sendFile(path.join(__dirname, '/script/maplibre-gl.css'));
+  })
+app.route('/script/pmtiles.js')
+  .get((req, res) => {
+    res.sendFile(path.join(__dirname, '/script/pmtiles.js'));
+  })
+app.route('/my_area.pmtiles')
+  .get((req, res) => {
+    res.sendFile(path.join(__dirname, '/my_area.pmtiles'));
+  })
+app.route('/objects.geojson')
+  .get((req, res) => {
+    res.sendFile(path.join(__dirname, '/objects.geojson'));
+  })
+app.route('/script/main.js')
+  .get((req, res) => {
+    res.sendFile(path.join(__dirname, '/script/main.js'));
+  })
+app.route('/select')
+  .get((req, res) => {
+	let db = new sqlite3.Database(path.join(__dirname, '/Objects.db'));
+	db.serialize(() => {
+    db.all("SELECT id, object_name FROM Object", (err, row) => {
+        
+		console.log(row);
+		let str = JSON.stringify(row);
+		//console.log(str);
+		res.send(str);
+		});	
+	});
+	db.close();
+  })
+app.listen(8080)
+
